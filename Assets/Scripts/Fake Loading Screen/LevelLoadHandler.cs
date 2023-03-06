@@ -18,6 +18,10 @@ public class LevelLoadHandler : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     public static LevelLoadHandler Instance { get; private set; }
