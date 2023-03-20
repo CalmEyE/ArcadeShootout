@@ -21,6 +21,8 @@ public class Character : MonoBehaviour
     private int _currentTarget = 0;
     private Vector3 _targetTimers = new Vector3();
 
+    public List<GameObject> targetArrows = new List<GameObject>();
+
 
     private void Start()
     {
@@ -57,6 +59,18 @@ public class Character : MonoBehaviour
     {
         current_CM = CharacterMode.Showdown;
         _currentTarget = Random.Range(1, 4);
+
+        for(int i = 0; i < targetArrows.Count; i++)
+        {
+
+            targetArrows[i].SetActive(false);
+
+            if (i == _currentTarget - 1)
+            {
+                targetArrows[i].SetActive(true);
+            }
+        }
+
         _targetTimers = Vector3.zero;
     }
 
@@ -77,6 +91,17 @@ public class Character : MonoBehaviour
             else if (Input.GetButtonDown(button3))
             {
                 _currentTarget = 3;
+            }
+        }
+
+        for (int i = 0; i < targetArrows.Count; i++)
+        {
+
+            targetArrows[i].SetActive(false);
+
+            if (i == _currentTarget - 1)
+            {
+                targetArrows[i].SetActive(true);
             }
         }
 

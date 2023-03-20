@@ -228,18 +228,6 @@ PrefabInstance:
       value: Player 4
       objectReference: {fileID: 0}
     - target: {fileID: 2868761411067200099, guid: 171c16f7c076f4b2c84320d00f068df5, type: 3}
-      propertyPath: button1
-      value: p4_Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 2868761411067200099, guid: 171c16f7c076f4b2c84320d00f068df5, type: 3}
-      propertyPath: button2
-      value: p4_Middle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2868761411067200099, guid: 171c16f7c076f4b2c84320d00f068df5, type: 3}
-      propertyPath: button3
-      value: p4_Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 2868761411067200099, guid: 171c16f7c076f4b2c84320d00f068df5, type: 3}
       propertyPath: target1
       value: 
       objectReference: {fileID: 4304239832601902998}
@@ -313,6 +301,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 584547018007049470, guid: 53fbe8713f3084a70b1918306d5d8ea2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13385546
+      objectReference: {fileID: 0}
+    - target: {fileID: 584547018007049470, guid: 53fbe8713f3084a70b1918306d5d8ea2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5051952
+      objectReference: {fileID: 0}
+    - target: {fileID: 584547018007049470, guid: 53fbe8713f3084a70b1918306d5d8ea2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
     - target: {fileID: 3426960778920339447, guid: 53fbe8713f3084a70b1918306d5d8ea2, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -374,18 +374,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2494777366409165423, guid: 156634b991a034d948102de4da9f069b, type: 3}
-      propertyPath: button1
-      value: p1_Up
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494777366409165423, guid: 156634b991a034d948102de4da9f069b, type: 3}
-      propertyPath: button2
-      value: p1_Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494777366409165423, guid: 156634b991a034d948102de4da9f069b, type: 3}
-      propertyPath: button3
-      value: p1_Down
-      objectReference: {fileID: 0}
     - target: {fileID: 2494777366409165423, guid: 156634b991a034d948102de4da9f069b, type: 3}
       propertyPath: target1
       value: 
@@ -467,18 +455,6 @@ PrefabInstance:
     - target: {fileID: 1773831812587935548, guid: 1b8ca0032aa4c429f888227759a00a0c, type: 3}
       propertyPath: m_Name
       value: Player 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144535899878548133, guid: 1b8ca0032aa4c429f888227759a00a0c, type: 3}
-      propertyPath: button1
-      value: p3_Up
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144535899878548133, guid: 1b8ca0032aa4c429f888227759a00a0c, type: 3}
-      propertyPath: button2
-      value: p3_Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144535899878548133, guid: 1b8ca0032aa4c429f888227759a00a0c, type: 3}
-      propertyPath: button3
-      value: p3_Down
       objectReference: {fileID: 0}
     - target: {fileID: 2144535899878548133, guid: 1b8ca0032aa4c429f888227759a00a0c, type: 3}
       propertyPath: target1
@@ -623,18 +599,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2558660408022981779, guid: 73d912a1c0be246869526bd666710969, type: 3}
-      propertyPath: button1
-      value: p2_Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558660408022981779, guid: 73d912a1c0be246869526bd666710969, type: 3}
-      propertyPath: button2
-      value: p2_Right
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558660408022981779, guid: 73d912a1c0be246869526bd666710969, type: 3}
-      propertyPath: button3
-      value: p2_Middle
-      objectReference: {fileID: 0}
     - target: {fileID: 2558660408022981779, guid: 73d912a1c0be246869526bd666710969, type: 3}
       propertyPath: target1
       value: 
