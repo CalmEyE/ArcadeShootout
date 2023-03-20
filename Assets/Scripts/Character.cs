@@ -6,27 +6,12 @@ public class Character : MonoBehaviour
 {
     public CharacterMode current_CM;
 
-    public List<TargetHandler> targetHandler = new List<TargetHandler>();
-    
-    //Button and Target
-    public string button1 = "";
-    public Transform target1;
-
-    public string button2 = "";
-    public Transform target2;
-
-    public string button3 = "";
-    public Transform target3;
-
     private int _currentTarget = 0;
-    private Vector3 _targetTimers = new Vector3();
-
-    public List<GameObject> targetArrows = new List<GameObject>();
-
+    public List<TargetHandler> targetHandler = new List<TargetHandler>();
 
     private void Start()
     {
-
+        
     }
 
     private void Update()
@@ -48,76 +33,82 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void EnterIdle()
+    {
+        for (int i = 0; i < targetHandler.Count; i++)
+        {
+            targetHandler[i].indicator.SetActive(false);
+        }
+        current_CM = CharacterMode.Idle;
+    }
 
     private void Idle()
     {
-        //Todo: remove this... obviously.
-        EnterShowdown();
+        
     }
 
     public void EnterShowdown()
     {
         current_CM = CharacterMode.Showdown;
-        _currentTarget = Random.Range(1, 4);
+        _currentTarget = Random.Range(0, 3);
 
-        for(int i = 0; i < targetArrows.Count; i++)
+        for(int i = 0; i < targetHandler.Count; i++)
         {
 
-            targetArrows[i].SetActive(false);
+            targetHandler[i].indicator.SetActive(false);
+            targetHandler[i].targetTime = 0.0f;
 
-            if (i == _currentTarget - 1)
+            if (i == _currentTarget)
             {
-                targetArrows[i].SetActive(true);
+                targetHandler[i].indicator.SetActive(true);
             }
         }
-
-        _targetTimers = Vector3.zero;
     }
 
     private void Showdown()
     {
 
         //Change target
-        if(Input.GetButton(button1) || Input.GetButton(button2) || Input.GetButton(button3))
+        if(Input.GetButton(targetHandler[0].button) || Input.GetButton(targetHandler[1].button) || Input.GetButton(targetHandler[2].button))
         {
-            if (Input.GetButtonDown(button1))
+            if (Input.GetButtonDown(targetHandler[0].button))
+            {
+                _currentTarget = 0;
+            }
+            else if (Input.GetButtonDown(targetHandler[1].button))
             {
                 _currentTarget = 1;
             }
-            else if (Input.GetButtonDown(button2))
+            else if (Input.GetButtonDown(targetHandler[2].button))
             {
                 _currentTarget = 2;
             }
-            else if (Input.GetButtonDown(button3))
-            {
-                _currentTarget = 3;
-            }
         }
 
-        for (int i = 0; i < targetArrows.Count; i++)
+        for (int i = 0; i < targetHandler.Count; i++)
         {
 
-            targetArrows[i].SetActive(false);
+            targetHandler[i].indicator.SetActive(false);
 
-            if (i == _currentTarget - 1)
+            if (i == _currentTarget)
             {
-                targetArrows[i].SetActive(true);
+                targetHandler[i].indicator.SetActive(true);
             }
         }
 
         //Increase looktimer
         switch (_currentTarget)
         {
+            case 0:
+                targetHandler[0].targetTime += Time.deltaTime;
+                break;
+
             case 1:
-                _targetTimers.x += Time.deltaTime;
+                targetHandler[1].targetTime += Time.deltaTime;
                 break;
 
             case 2:
-                _targetTimers.y += Time.deltaTime;
-                break;
-
-            case 3:
-                _targetTimers.z += Time.deltaTime;
+                targetHandler[2].targetTime += Time.deltaTime;
                 break;
         }
     }

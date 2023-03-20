@@ -287,7 +287,7 @@ Transform:
   - {fileID: 6744706335920189394}
   - {fileID: 7641243866083664830}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8867736909538362326
 SpriteRenderer:
@@ -374,11 +374,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_CM: 0
-  button1: p2_Left
+  targetHandler:
+  - button: p2_Left
+    target: {fileID: 0}
+    targetTime: 0
+    indicator: {fileID: 1727515552497752364}
+  - button: p2_Right
+    target: {fileID: 0}
+    targetTime: 0
+    indicator: {fileID: 1938890723557775783}
+  - button: p2_Middle
+    target: {fileID: 0}
+    targetTime: 0
+    indicator: {fileID: 6778377250427127226}
+  button1: 
   target1: {fileID: 0}
-  button2: p2_Right
+  button2: 
   target2: {fileID: 0}
-  button3: p2_Middle
+  button3: 
   target3: {fileID: 0}
   targetArrows:
   - {fileID: 1727515552497752364}
