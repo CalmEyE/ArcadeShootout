@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
 {
     public CharacterMode current_CM;
 
-
+    public List<TargetHandler> targetHandler = new List<TargetHandler>();
     
     //Button and Target
     public string button1 = "";
@@ -131,6 +131,16 @@ public class Character : MonoBehaviour
     {
 
     }
+
+}
+
+[System.Serializable]
+public class TargetHandler
+{
+    public string button;
+    public Transform target;
+    public float targetTime;
+    public GameObject indicator;
 
 }
 
