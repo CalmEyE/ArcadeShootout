@@ -35,7 +35,7 @@ Transform:
   - {fileID: 3627570988722043079}
   - {fileID: 1068694794717214617}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2860366095252346986
 SpriteRenderer:
@@ -122,6 +122,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_CM: 0
+  targetHandler:
+  - button: p3_Up
+    target: {fileID: 0}
+    targetTime: 0
+    indicator: {fileID: 3127719536182165468}
+  - button: p3_Left
+    target: {fileID: 0}
+    targetTime: 0
+    indicator: {fileID: 3289479678183854919}
+  - button: p3_Down
+    target: {fileID: 0}
+    targetTime: 0
+    indicator: {fileID: 9083370087886823422}
   button1: p3_Up
   target1: {fileID: 0}
   button2: p3_Left
