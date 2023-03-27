@@ -5,9 +5,11 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public CharacterMode current_CM;
-
+    [SerializeField] private RoundHandler _rh;
     private int _currentTarget = 0;
     public List<TargetHandler> targetHandler = new List<TargetHandler>();
+
+    private bool _hasFired = false;
 
     private void Start()
     {
@@ -113,9 +115,50 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void EnterDraw()
+    {
+        current_CM = CharacterMode.Draw;
+        _hasFired = false;
+
+        for (int i = 0; i < targetHandler.Count; i++)
+        {
+            targetHandler[i].shotAt = false;
+            targetHandler[i].canHit = false;
+            targetHandler[i].shotTime = 0.0f;
+        }
+    }
+
     private void Draw()
     {
-
+        if (!_hasFired)
+        {
+            if (Input.GetButton(targetHandler[0].button) || Input.GetButton(targetHandler[1].button) || Input.GetButton(targetHandler[2].button))
+            {
+                if (Input.GetButtonDown(targetHandler[0].button))
+                {
+                    Shot(0);
+                }
+                else if (Input.GetButtonDown(targetHandler[1].button))
+                {
+                    Shot(1);
+                }
+                else if (Input.GetButtonDown(targetHandler[2].button))
+                {
+                    Shot(2);
+                }
+            }
+        }
+    }
+    private void Shot(int index)
+    {
+        if (_rh.allowShoot)
+        {
+            _hasFired = true;
+            targetHandler[index].shotAt = true;
+            targetHandler[index].shotTime = _rh.shotTimer;
+            targetHandler[index].canHit = _rh.canHit;
+            _rh.Fired();
+        }
     }
 
     private void Resulotion()
@@ -128,9 +171,12 @@ public class Character : MonoBehaviour
 [System.Serializable]
 public class TargetHandler
 {
+    public bool shotAt = false;
     public string button;
     public Transform target;
     public float targetTime;
+    public float shotTime;
+    public bool canHit;
     public GameObject indicator;
 
 }
