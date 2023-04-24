@@ -23,6 +23,8 @@ public class RoundHandler : MonoBehaviour
     //Draw
     public GameObject drawScreen;
     public GameObject drawObject;
+    public AudioSource drawSound;
+    private bool _drawSoundPlayed = false;
     private float _currentDrawTimer = 0.0f;
     private float _currentDrawTimerMax = 0.0f;
     private bool _allowShoot = false;
@@ -157,6 +159,7 @@ public class RoundHandler : MonoBehaviour
         _canHit = false;
         _playersFired = 0;
         currentMode = RoundMode.Draw;
+        _drawSoundPlayed = false;
     }
     private void Draw()
     {
@@ -172,11 +175,17 @@ public class RoundHandler : MonoBehaviour
             {
                 _allowShoot = true;
             }
+
+            if (_currentDrawTimer > _currentDrawTimerMax - 0.66f && !_drawSoundPlayed)
+            {
+                _drawSoundPlayed = true;
+                drawSound.PlayOneShot(drawSound.clip);
+            }
         }
         else if (_currentDrawTimer > _currentDrawTimerMax && !_canHit)
         {
 
-            //TODO:Enable draw-text and sound
+            //TODO: sound
             drawObject.SetActive(true);
             _canHit = true;
         }

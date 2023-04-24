@@ -10,7 +10,14 @@ public class BackToMainMenu : MonoBehaviour
     {
         if (backToMain || Input.GetButtonDown("Submit"))
         {
-            GameObject.FindGameObjectWithTag("LevelHandler").GetComponent<LevelLoadHandler>().NewLevelToLoad(0);
+            if (GameObject.FindGameObjectWithTag("LevelHandler") != null)
+            {
+                LevelLoadHandler.Instance.NewLevelToLoad(1);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
